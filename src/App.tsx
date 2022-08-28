@@ -1,8 +1,8 @@
 import './app.css'
 import { useState } from 'react'
 import { Navigation } from './components/nav'
-import { Notes } from './components/Notes'
-import { Sidebar } from './components/Sidebar'
+import { Notes } from './components/notes'
+import { Sidebar } from './components/sidebar'
 
 function App() {
   return (

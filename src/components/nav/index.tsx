@@ -1,5 +1,5 @@
 import { Container, Wrapper, Button } from './style'
-import { Search } from '../Search'
+import { Search } from '../search'
 
 export const Navigation = () => {
   return (
