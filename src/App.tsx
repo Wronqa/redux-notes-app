@@ -1,6 +1,6 @@
 import './app.css'
 import { useState } from 'react'
-import { Navigation } from './components/Navigation'
+import { Navigation } from './components/nav'
 import { Notes } from './components/Notes'
 import { Sidebar } from './components/Sidebar'
 

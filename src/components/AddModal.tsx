@@ -2,13 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import CloseIcon from '@mui/icons-material/Close'
 
-export const AddModal = ({
-  close,
-  visibility,
-}: {
+type PropsType = {
   close: Function
   visibility: boolean
-}) => {
+}
+export const AddModal = ({ close, visibility }: PropsType) => {
   ///Wez to typie sprawdz
   const Container = styled.div`
     width: 100vw;

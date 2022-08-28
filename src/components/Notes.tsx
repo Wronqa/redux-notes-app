@@ -69,6 +69,7 @@ export const Notes = () => {
             <MenuItem>All</MenuItem>
             <MenuItem>Projects</MenuItem>
             <MenuItem>Personal</MenuItem>
+            <MenuItem>Business</MenuItem>
           </Menu>
           <AddNote
             onClick={() => {
