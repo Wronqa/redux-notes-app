@@ -7,6 +7,7 @@ export const store = configureStore({
     notes: notesReducer,
     settings: settingsReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 })
 
 export type RootState = ReturnType<typeof store.getState>

@@ -12,6 +12,12 @@ export enum Categories {
   BUSINESS = 'Business',
   PROJECT = 'Project',
 }
+export interface TempNote {
+  id: string
+  date?: Date
+  title: string
+  desc: string
+}
 export interface Note {
   id: number
   date: Date
@@ -23,7 +29,7 @@ export interface Note {
 }
 
 export interface NotesState {
-  notes: Note[]
+  data: TempNote[]
 }
 
 export interface SettingsState {

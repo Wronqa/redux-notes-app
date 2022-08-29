@@ -1,4 +1,4 @@
-import { Note } from '../card'
+import { Note } from '../note'
 import { useState } from 'react'
 import { AddModal } from '../addModal'
 import {
@@ -12,9 +12,13 @@ import {
   Text,
   NotesList,
 } from './style'
+import { NotesState } from '../../types'
+import { useSelector } from 'react-redux'
 
 export const Notes = () => {
   const [modalVisibility, setModalVisibility] = useState(false)
+
+  const count = useSelector((state: any) => state.notes.data)
 
   return (
     <Container>
@@ -37,18 +41,9 @@ export const Notes = () => {
         </Top>
 
         <NotesList>
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
-          <Note />
+          {count?.map((item: any) => (
+            <Note title={item.title} desc={item.desc} />
+          ))}
         </NotesList>
       </Wrapper>
       {modalVisibility && (

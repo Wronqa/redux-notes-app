@@ -1,7 +1,8 @@
 import FullscreenIcon from '@mui/icons-material/Fullscreen'
-import { Container, Menu, MenuItem, Icon } from './style'
+import { Container, Menu, Icon, MenuItem } from './style'
 
 export const SidebarMenu = ({ isOpen }: { isOpen: boolean }) => {
+  ///Problem z nazwami
   return (
     <Container>
       <Menu>
