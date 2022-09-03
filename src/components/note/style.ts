@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import MoreVertIcon from '@mui/icons-material/MoreVert'
 
 export const Container = styled.div`
   width: 23%;
@@ -12,6 +13,15 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
+
+export const Top = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+`
+export const Icon = styled(MoreVertIcon)``
+
 export const Date = styled.p`
   font-weight: 400;
   font-size: 0.8rem;

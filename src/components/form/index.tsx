@@ -1,6 +1,14 @@
 import { useFormik } from 'formik'
-import { TempNote } from '../../types'
-import { FormContainer, Input, TextArea, Button } from './style'
+import { Categories, TempNote } from '../../types'
+import {
+  FormContainer,
+  Input,
+  TextArea,
+  Select,
+  Option,
+  Label,
+  FormItem,
+} from './style'
 import nextId from 'react-id-generator'
 
 interface PropsInterface {
@@ -15,12 +23,13 @@ export const Form = ({ addNote }: PropsInterface) => {
   const htmlId = nextId()
 
   const formik = useFormik({
-    initialValues: { title: '', date: '', desc: '' },
+    initialValues: { title: '', date: '', desc: '', category: 'All' },
     onSubmit: (values) => {
       const note = {
         id: htmlId,
         title: values.title,
         desc: values.desc,
+        category: values.category,
         //date: new Date(),
       }
       console.log(note)
@@ -43,18 +52,53 @@ export const Form = ({ addNote }: PropsInterface) => {
   return (
     <div>
       <FormContainer onSubmit={formik.handleSubmit}>
-        <Input
-          id='title'
-          onChange={formik.handleChange}
-          value={formik.values.title}
-        />
-        <Input />
-        <Input />
-        <TextArea
-          id='desc'
-          onChange={formik.handleChange}
-          value={formik.values.desc}
-        />
+        <FormItem>
+          <Label htmlFor='title'>Title</Label>
+          <Input
+            id='title'
+            onChange={formik.handleChange}
+            value={formik.values.title}
+          />
+        </FormItem>
+        <FormItem>
+          <Label htmlFor='desc'>Description</Label>
+          <TextArea
+            id='desc'
+            onChange={formik.handleChange}
+            value={formik.values.desc}
+          />
+        </FormItem>
+        <FormItem>
+          <Label htmlFor='category'>Description</Label>
+          <Select id='category' onChange={formik.handleChange}>
+            {(Object.keys(Categories) as (keyof typeof Categories)[]).map(
+              (key, index) => {
+                return (
+                  <Option key={index} value={Categories[key]}>
+                    {Categories[key]}
+                  </Option>
+                )
+              }
+            )}
+          </Select>
+        </FormItem>
+        {formik.values.category === 'Project' && (
+          <FormItem>
+            <Label htmlFor='category'>Description</Label>
+            <Select id='category' onChange={formik.handleChange}>
+              {(Object.keys(Categories) as (keyof typeof Categories)[]).map(
+                (key, index) => {
+                  return (
+                    <Option key={index} value={Categories[key]}>
+                      {Categories[key]}
+                    </Option>
+                  )
+                }
+              )}
+            </Select>
+          </FormItem>
+        )}
+
         <Input type='submit' value='ADD' />
       </FormContainer>
     </div>

@@ -12,7 +12,6 @@ import {
   Text,
   NotesList,
 } from './style'
-import { NotesState } from '../../types'
 import { useSelector } from 'react-redux'
 
 export const Notes = () => {
@@ -42,7 +41,12 @@ export const Notes = () => {
 
         <NotesList>
           {count?.map((item: any) => (
-            <Note title={item.title} desc={item.desc} />
+            <Note
+              title={item.title}
+              key={item.id}
+              desc={item.desc}
+              id={item.id}
+            />
           ))}
         </NotesList>
       </Wrapper>

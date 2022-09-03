@@ -1,17 +1,38 @@
-import { Container, Wrapper, Date, Title, Desc } from './style'
+import { useState } from 'react'
+import { Container, Wrapper, Top, Icon, Date, Title, Desc } from './style'
+import { Options } from '../options'
+import { AddModal } from '../addModal'
 
 interface NoteInterface {
   title: string
   desc: string
+  id: string
 }
-export const Note = ({ title, desc }: NoteInterface) => {
+export const Note = ({ id, title, desc }: NoteInterface) => {
+  const [show, setShow] = useState<boolean>(false)
+  const [editShow, setEditShow] = useState<boolean>(false)
+
   return (
-    <Container>
-      <Wrapper>
-        <Date>27 June 2022 18:32</Date>
-        <Title>{title}</Title>
-        <Desc>{desc}</Desc>
-      </Wrapper>
-    </Container>
+    <>
+      <Container>
+        <Wrapper>
+          <Top>
+            <Date>27 June 2022 18:32</Date>
+            <Icon onClick={() => setShow((prev) => !prev)} />
+            {show && (
+              <Options
+                show={show}
+                setShow={setShow}
+                id={id}
+                setEditShow={setEditShow}
+              />
+            )}
+          </Top>
+          <Title>{title}</Title>
+          <Desc>{desc}</Desc>
+        </Wrapper>
+      </Container>
+      {editShow && <AddModal close={setEditShow} visibility={editShow} />}
+    </>
   )
 }
