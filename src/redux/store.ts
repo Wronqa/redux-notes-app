@@ -10,5 +10,9 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 })
 
+store.subscribe(() => {
+  localStorage.setItem('notes', JSON.stringify(store.getState().notes.data))
+})
+
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

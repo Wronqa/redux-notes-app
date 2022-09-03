@@ -1,12 +1,16 @@
+import { TempNote } from './../types'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { json } from 'stream/consumers'
 import {
   TempNote as TempNoteInterface,
   NotesState as NotesStateInterface,
   Note as NoteInterface,
+  Note,
 } from '../types'
 
 const initialState: NotesStateInterface = {
-  data: [],
+  data:
+    (JSON.parse(localStorage.getItem('notes') as string) as TempNote[]) || [],
 }
 
 export const notesSlice = createSlice({

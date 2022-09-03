@@ -46,6 +46,7 @@ export const Notes = () => {
               key={item.id}
               desc={item.desc}
               id={item.id}
+              category={item.category}
             />
           ))}
         </NotesList>

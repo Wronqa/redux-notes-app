@@ -32,7 +32,6 @@ export const Form = ({ addNote }: PropsInterface) => {
         category: values.category,
         //date: new Date(),
       }
-      console.log(note)
       addNote(note)
     },
     validate: (values) => {
@@ -84,8 +83,8 @@ export const Form = ({ addNote }: PropsInterface) => {
         </FormItem>
         {formik.values.category === 'Project' && (
           <FormItem>
-            <Label htmlFor='category'>Description</Label>
-            <Select id='category' onChange={formik.handleChange}>
+            <Label htmlFor='projects'>Projects</Label>
+            <Select id='projects'>
               {(Object.keys(Categories) as (keyof typeof Categories)[]).map(
                 (key, index) => {
                   return (

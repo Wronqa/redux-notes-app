@@ -20,6 +20,12 @@ export const Top = styled.div`
   justify-content: space-between;
   position: relative;
 `
+export const Category = styled.span`
+  font-size: 0.9rem;
+  color: crimson;
+  font-style: italic;
+  font-weight: 400;
+`
 export const Icon = styled(MoreVertIcon)``
 
 export const Date = styled.p`
